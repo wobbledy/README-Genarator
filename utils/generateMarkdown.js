@@ -17,7 +17,7 @@ function renderLicenseBadge(license) {
     case 'Creative Commons Zero Universal':
       return `[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)`
     case 'Eclipse Publice License 2.0':
-      return `[![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)](https://opensource.org/licenses/EPL-1.0)`
+      return `[![License](https://img.shields.io/badge/License-EPL_2.0-red.svg)](https://opensource.org/licenses/EPL-1.0)`
     case 'GNU General Public License v2.0':
       return `[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)`
     case 'Mozilla Public License 2.0':
@@ -31,7 +31,34 @@ function renderLicenseBadge(license) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  switch (license) {
+    case 'Apache License 2.0':
+      return `https://opensource.org/license/apache-2-0/`
+    case 'GNU General Public License v3.0':
+      return `https://www.gnu.org/licenses/gpl-3.0`
+    case 'MIT License':
+      return `https://opensource.org/license/mit/`
+    case 'BSD 2-Clause License':
+      return `https://opensource.org/license/bsd-2-clause/`
+    case 'BSD 3-Clause License':
+      return `https://opensource.org/license/bsd-3-clause/`
+    case 'Boost Software License 1.0':
+      return `https://www.boost.org/LICENSE_1_0.txt`
+    case 'Creative Commons Zero Universal':
+      return `https://creativecommons.org/publicdomain/zero/1.0/`
+    case 'Eclipse Publice License 2.0':
+      return `https://opensource.org/license/epl-2-0/`
+    case 'GNU General Public License v2.0':
+      return `https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html`
+    case 'Mozilla Public License 2.0':
+      return `https://opensource.org/license/mpl-2-0/`
+    case 'The Unlicense':
+      return `https://unlicense.org/` 
+    case 'None':
+      return '';
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
@@ -52,10 +79,9 @@ function generateMarkdown(data) {
   ${data.test}
   ### Licensing Information
   ${data.license}
-  
 
 
-`;
+` + renderLicenseLink(data.license);
 }
 
 module.exports = generateMarkdown;
