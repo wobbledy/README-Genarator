@@ -1,9 +1,9 @@
-// TODO: Include packages needed for this application
+// Required packages for the application
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input
+// Array of questions to ask the user to generate the README
 const questions = [
     {
         type: 'input',
@@ -34,10 +34,16 @@ const questions = [
         type: 'input',
         message: 'Please enter the test instructions: ',
         name: 'test'
+    },
+    {
+        type: 'list',
+        message: 'Please select the license you would like to use: ',
+        name: 'license',
+        choices: ['Apache License 2.0', 'GNU General Public License v3.0', 'MIT License', 'BSD 2-Clause License', 'BSD 3-Clause License', 'Boost Software License 1.0', 'Creative Commons Zero Universal', 'Eclipse Publice License 2.0', 'GNU General Public License v2.0', 'Mozilla Public License 2.0', 'The Unlicense', 'None']
     }
 ]
 
-// TODO: Create a function to write README file
+// Writes the README file and logs out of it works or had an error
 function writeToFile(fileName, data) {
     const filePath = fileName + '.md';
 
@@ -45,27 +51,19 @@ function writeToFile(fileName, data) {
         if (err) {
             console.log(err);
         } else {
-            console.log('It Worked');
+            console.log('README Generated!');
         }
     })
 }
 
-// TODO: Create a function to initialize app
+// Calls Inquirer to run through the array of questions and generates the README file
 function init() {
-        
         inquirer
         .prompt(questions)
         .then((response) => {
-            //generateMarkdown(response)
-
-            //Write to file after Markdown is generated here
             writeToFile('GeneratedREADME', generateMarkdown(response))
-        });
-    
-
-    
-
+        }); 
 }
 
-// Function call to initialize app
+// Initializes the application
 init();
