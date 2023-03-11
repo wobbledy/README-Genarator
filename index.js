@@ -27,7 +27,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Please enter the contribution guidelines: ',
+        message: 'Please enter the contributions for this project: ',
         name: 'contribution'
     },
     {
@@ -39,7 +39,17 @@ const questions = [
         type: 'list',
         message: 'Please select the license you would like to use: ',
         name: 'license',
-        choices: ['Apache License 2.0', 'GNU General Public License v3.0', 'MIT License', 'BSD 2-Clause License', 'BSD 3-Clause License', 'Boost Software License 1.0', 'Creative Commons Zero Universal', 'Eclipse Publice License 2.0', 'GNU General Public License v2.0', 'Mozilla Public License 2.0', 'The Unlicense', 'None']
+        choices: ['Apache License 2.0', 'GNU General Public License v3.0', 'MIT License', 'BSD 2-Clause License', 'BSD 3-Clause License', 'Boost Software License 1.0', 'Creative Commons Zero Universal', 'Eclipse Public License 2.0', 'GNU General Public License v2.0', 'Mozilla Public License 2.0', 'The Unlicense', 'None']
+    },
+    {
+        type: 'input',
+        message: 'Please enter your GitHub username: ',
+        name: 'github'
+    },
+    {
+        type: 'input',
+        message: 'Please enter your email address: ',
+        name: 'email'
     }
 ]
 
